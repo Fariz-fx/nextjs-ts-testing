@@ -1,7 +1,6 @@
 const nextJest = require('next/jest')
 const TEST_REGEX = '(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|jsx?|tsx?|ts?)$'
 
-
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testRegex: TEST_REGEX,
@@ -15,7 +14,6 @@ const createJestConfig = nextJest({
   dir: './',
 })(customJestConfig)
 
-
 module.exports = async () => {
   const jestConfig = await createJestConfig()
   const moduleNameMapper = {
@@ -27,6 +25,6 @@ module.exports = async () => {
   }
   return {
     ...jestConfig,
-    moduleNameMapper
+    moduleNameMapper,
   }
 }
